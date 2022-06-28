@@ -1,15 +1,17 @@
-#ifndef TODO_LIST_INTERFACE_H
-#define TODO_LIST_INTERFACE_H
+#ifndef TO_DO_LIST_TODOLIST_H
+#define TO_DO_LIST_TODOLIST_H
 
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class TodoListInterface {
+class TodoList : public TodoListInterface {
+
 public:
-    TodoListInterface() {}
-    virtual ~TodoListInterface() {}
+
+    TodoList () {}
+    virtual ~TodoList () {}
 
     /*
     *   Adds an item to the todo list with the data specified by the string "_duedate" and the task specified by "_task"
@@ -27,12 +29,13 @@ public:
     *   Prints out the full todo list to the console
     */
     virtual void printTodoList() = 0;
-    
+
     /*
     *   Prints out all items of a todo list with a particular due date (specified by _duedate)
     */
     virtual void printDaysTasks(string _date) = 0;
 
 };
+
 
 #endif
