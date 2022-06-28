@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "TodoListInterface.h"
 
 using namespace std;
 
@@ -10,9 +11,13 @@ class TodoList : public TodoListInterface {
 
 public:
 
-    TodoList () {}
+    TodoList () {
+        cout << "You are in the constructor" << endl;
+    }
 
-    virtual ~TodoList () {}
+    virtual ~TodoList () {
+        cout << "You are in the destructor" << endl;
+    }
 
     /*
     *   Adds an item to the todo list with the data specified by the string "_duedate" and the task specified by "_task"
