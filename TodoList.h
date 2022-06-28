@@ -11,6 +11,7 @@ class TodoList : public TodoListInterface {
 public:
 
     TodoList () {}
+
     virtual ~TodoList () {}
 
     /*
@@ -36,6 +37,5 @@ public:
     virtual void printDaysTasks(string _date) = 0;
 
 };
-
 
 #endif
