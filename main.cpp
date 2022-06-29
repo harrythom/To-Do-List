@@ -49,7 +49,6 @@ int main (int argc, char* argv[]) {
             else {
                 cout << "To few arguments to print " << argv[2] << "'s" << " tasks" << endl;
             }
-
         }
         else {
             cout << "Not a real command" << endl;
