@@ -9,14 +9,13 @@ TodoList::TodoList() {
     string tempLine;
 
     if (input.is_open()) {
-
-        getline(input, tempLine);
-
         while (!input.eof()) {
             getline(input, tempLine);
+
             if (tempLine == " ") {
                 continue;
             }
+
             tasks.push_back(tempLine);
         }
         input.close();
@@ -52,7 +51,24 @@ int TodoList::remove(string _task) {
 
     cout << "removing a task..." << endl;
 
-    return 0;
+    bool taskRemoved = false;
+
+    for (int i = 0; i < tasks.size(); ++i) {
+        if (tasks.at(i) == _task ) {
+            tasks.at(i).erase();
+            tasks.at(i - 1).erase();
+
+            taskRemoved = true;
+            break;
+        }
+    }
+
+    if (taskRemoved) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 void TodoList::printTodoList() {
