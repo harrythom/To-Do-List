@@ -1,6 +1,7 @@
 #include "TodoList.h"
 
 TodoList::TodoList() {
+
     cout << "in constructor..." << endl;
 
     ifstream input;
@@ -17,7 +18,6 @@ TodoList::TodoList() {
     else {
         cout << "TODOList.txt could not open" << endl;
     }
-
 }
 
 TodoList::~TodoList () {
@@ -28,7 +28,7 @@ TodoList::~TodoList () {
     output.open("TODOList.txt");
 
     for (int i = 0; i < tasks.size(); ++i) {
-        output << tasks.at(i);
+        output << tasks.at(i) << endl;
     }
 
     output.close();
@@ -44,7 +44,6 @@ void TodoList::add(string _duedate, string _task) {
 
 int TodoList::remove(string _task) {
 
-
     cout << "removing a task..." << endl;
 
     return 0;
@@ -57,7 +56,6 @@ void TodoList::printTodoList() {
     for (int i = 0; i < tasks.size(); ++i) {
         cout << tasks.at(i) << endl;
     }
-
 }
 
 void TodoList::printDaysTasks(string _date) {
