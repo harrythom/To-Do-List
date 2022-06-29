@@ -3,21 +3,22 @@
 TodoList::TodoList() {
     cout << "in constructor" << endl;
 
-    ifstream input;
-    input.open("TODOList.txt");
-    string tempLine;
-    vector <string> tasks;
+//    ifstream input;
+//    input.open("TODOList.txt");
+//    string tempLine;
+//    vector <string> tasks;
+//
+//    if (input.is_open()) {
+//        while (!input.eof()) {
+//            getline(input, tempLine);
+//            tasks.push_back(tempLine);
+//        }
+//        input.close();
+//    }
+//    else {
+//        cout << "TODOList.txt could not open" << endl;
+//    }
 
-    if (input.is_open()) {
-        while (!input.eof()) {
-            getline(input, tempLine);
-            tasks.push_back(tempLine);
-        }
-        input.close();
-    }
-    else {
-        cout << "TODOList.txt could not open" << endl;
-    }
 }
 
 TodoList::~TodoList () {
@@ -26,6 +27,8 @@ TodoList::~TodoList () {
 
 void TodoList::add(string _duedate, string _task) {
     cout << "Adding a task" << endl;
+
+
 }
 
 int TodoList::remove(string _task) {
