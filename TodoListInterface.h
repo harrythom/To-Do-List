@@ -10,6 +10,7 @@ class TodoListInterface {
 public:
 
     TodoListInterface() {}
+
     virtual ~TodoListInterface() {}
 
     /*
