@@ -9,8 +9,14 @@ TodoList::TodoList() {
     string tempLine;
 
     if (input.is_open()) {
+
+        getline(input, tempLine);
+
         while (!input.eof()) {
             getline(input, tempLine);
+            if (tempLine == " ") {
+                continue;
+            }
             tasks.push_back(tempLine);
         }
         input.close();
