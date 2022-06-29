@@ -2,7 +2,7 @@
 
 TodoList::TodoList() {
 
-    cout << "in constructor..." << endl;
+    cout << "In constructor..." << endl;
 
     ifstream input;
     input.open("TODOList.txt");
@@ -11,11 +11,9 @@ TodoList::TodoList() {
     if (input.is_open()) {
         while (!input.eof()) {
             getline(input, tempLine);
-
-            if (tempLine == " ") {
+            if (tempLine.empty()) {
                 continue;
             }
-
             tasks.push_back(tempLine);
         }
         input.close();
@@ -27,16 +25,25 @@ TodoList::TodoList() {
 
 TodoList::~TodoList () {
 
-    cout << "in destructor..." << endl;
+    cout << "In destructor..." << endl;
 
     ofstream output;
     output.open("TODOList.txt");
 
-    for (int i = 0; i < tasks.size(); ++i) {
-        output << tasks.at(i) << endl;
+    if (output.is_open()) {
+        for (int i = 0; i < tasks.size(); ++i) {
+            if (tasks.at(i).empty()) {
+                continue;
+            }
+            else {
+                output << tasks.at(i) << endl;
+            }
+        }
+        output.close();
     }
-
-    output.close();
+    else {
+        cout << "TODOList.txt could not open" << endl;
+    }
 }
 
 void TodoList::add(string _duedate, string _task) {
@@ -57,7 +64,6 @@ int TodoList::remove(string _task) {
         if (tasks.at(i) == _task ) {
             tasks.at(i).erase();
             tasks.at(i - 1).erase();
-
             taskRemoved = true;
             break;
         }
@@ -84,19 +90,9 @@ void TodoList::printDaysTasks(string _date) {
 
     cout << "Printing tasks on " << _date << endl;
 
-    ifstream input;
-    input.open("TODOList.txt");
-
-    string tempLine;
-
-    if (input.is_open()) {
-        for (int i = 0; i < tasks.size(); ++i) {
-            if (tasks.at(i) == _date) {
-                cout << tasks.at(i + 1) << endl;
-            }
+    for (int i = 0; i < tasks.size(); ++i) {
+        if (tasks.at(i) == _date) {
+            cout << tasks.at(i + 1) << endl;
         }
-    }
-    else {
-        cout << "Could not open TODOList.txt" << endl;
     }
 }
